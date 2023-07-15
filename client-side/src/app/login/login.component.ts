@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
       })
     )
     .subscribe((response: LoginResponse) => {
-      if (response.authorized) {
+      if (response.user) {
         localStorage.setItem('isLoggedIn', 'true');
         this.router.navigate(['/dashboard']);
         this.showSnackbar('New user created.');
@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
         })
       )
       .subscribe((response: LoginResponse) => {
-        if (response.authorized) {
+        if (response.user) {
           localStorage.setItem('isLoggedIn', 'true');
           this.router.navigate(['/dashboard']);
         } else {

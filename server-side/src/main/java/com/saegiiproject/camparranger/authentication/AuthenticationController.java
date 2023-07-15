@@ -1,5 +1,7 @@
 package com.saegiiproject.camparranger.authentication;
 
+import com.saegiiproject.camparranger.authentication.model.LoginDto;
+import com.saegiiproject.camparranger.user.model.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,12 +17,12 @@ public class AuthenticationController {
     private AuthenticationService service;
 
     @PostMapping("/login")
-    public ResponseEntity<LoginResponse> authenticateUser(@RequestBody LoginRequest loginRequest) {
-        return service.authenticate(loginRequest);
+    public ResponseEntity<UserDto> authenticateUser(@RequestBody LoginDto loginDto) {
+        return service.authenticate(loginDto);
     }
 
     @PostMapping("/register")
-    public ResponseEntity<?> registerUser(@RequestBody LoginRequest signUpRequest) {
-        return service.register(signUpRequest);
+    public ResponseEntity<UserDto> registerUser(@RequestBody LoginDto registerDto) {
+        return service.register(registerDto);
     }
 }

@@ -1,6 +1,10 @@
 package com.saegiiproject.camparranger.user;
 
+import com.saegiiproject.camparranger.group.model.Group;
 import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -16,6 +20,8 @@ public class User {
     @Column(nullable = false)
     private String password;
 
+    @ManyToMany(mappedBy = "users")
+    private List<Group> groups = new ArrayList<>();
 
     public User() {
     }
@@ -47,5 +53,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public List<Group> getGroups() {
+        return groups;
+    }
+
+    public void setGroups(List<Group> groups) {
+        this.groups = groups;
     }
 }

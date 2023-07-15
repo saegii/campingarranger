@@ -1,6 +1,6 @@
-package com.saegiiproject.camparranger.authentication;
+package com.saegiiproject.camparranger.authentication.model;
 
-public class LoginRequest {
+public class LoginDto {
     private String email;
 
     private String password;
