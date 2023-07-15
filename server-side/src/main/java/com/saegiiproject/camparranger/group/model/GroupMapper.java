@@ -1,9 +1,5 @@
 package com.saegiiproject.camparranger.group.model;
 
-import com.saegiiproject.camparranger.authentication.model.LoginDto;
-import com.saegiiproject.camparranger.group.model.Group;
-import com.saegiiproject.camparranger.group.model.GroupDto;
-import com.saegiiproject.camparranger.user.User;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;

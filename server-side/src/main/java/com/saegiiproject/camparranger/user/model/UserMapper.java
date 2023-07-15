@@ -3,7 +3,6 @@ package com.saegiiproject.camparranger.user.model;
 import com.saegiiproject.camparranger.authentication.model.LoginDto;
 import com.saegiiproject.camparranger.group.model.GroupMapper;
 import com.saegiiproject.camparranger.user.User;
-import com.saegiiproject.camparranger.user.model.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
