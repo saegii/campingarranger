@@ -22,31 +22,44 @@ export class LoginComponent implements OnInit {
   ngOnInit() {}
 
   signUp() {
-    console.log('Signing up with email:', this.email);
-    localStorage.setItem('isLoggedIn', 'true');
-    // service sign up
+    this.authService.register(this.mapLoginUser())
+    .pipe(
+      catchError((error: HttpErrorResponse) => {
+        return this.handleError(error);
+      })
+    )
+    .subscribe((response: LoginResponse) => {
+      if (response.authorized) {
+        localStorage.setItem('isLoggedIn', 'true');
+        this.router.navigate(['/dashboard']);
+        this.showSnackbar('New user created.');
+      } else {
+        this.showSnackbar('User got created but is not authorized, try again.');
+      }
+    })
   }
 
   signIn() {
-    console.log('Signing in with email:', this.email);
-    const user = this.mapLoginUser();
-    console.log(user);
-    this.authService.authenticate(user)
+    this.authService.authenticate(this.mapLoginUser())
       .pipe(
         catchError((error: HttpErrorResponse) => {
-          console.log('An error occurred:', error.message);
-          return throwError('Something went wrong.');
+          return this.handleError(error);
         })
       )
       .subscribe((response: LoginResponse) => {
-        console.log('Response:', response);
         if (response.authorized) {
           localStorage.setItem('isLoggedIn', 'true');
           this.router.navigate(['/dashboard']);
         } else {
-          this.showSnackbar('Not authorized user, register new account.');
+          this.showSnackbar('Wrong email or password.');
         }
       })
+  }
+
+  handleError(error: HttpErrorResponse) {
+    console.log('An error occurred:', error);
+    this.showSnackbar(error.error);
+    return throwError('Something went wrong.');
   }
 
   mapLoginUser(): LoginUser {
