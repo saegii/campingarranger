@@ -3,9 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { catchError, throwError } from 'rxjs';
-import { LoginResponse } from 'src/models/login-response';
-import { LoginUser } from 'src/models/login-user';
 import { AuthService } from 'src/services/auth.service';
+import { User } from 'src/models/user';
+import { Login } from 'src/models/login';
 
 @Component({
   selector: 'app-login',
@@ -28,8 +28,8 @@ export class LoginComponent implements OnInit {
         return this.handleError(error);
       })
     )
-    .subscribe((response: LoginResponse) => {
-      if (response.user) {
+    .subscribe((user: User) => {
+      if (user.id) {
         localStorage.setItem('isLoggedIn', 'true');
         this.router.navigate(['/dashboard']);
         this.showSnackbar('New user created.');
@@ -46,8 +46,8 @@ export class LoginComponent implements OnInit {
           return this.handleError(error);
         })
       )
-      .subscribe((response: LoginResponse) => {
-        if (response.user) {
+      .subscribe((user: User) => {
+        if (user.id) {
           localStorage.setItem('isLoggedIn', 'true');
           this.router.navigate(['/dashboard']);
         } else {
@@ -62,11 +62,11 @@ export class LoginComponent implements OnInit {
     return throwError('Something went wrong.');
   }
 
-  mapLoginUser(): LoginUser {
+  mapLoginUser(): Login {
     return {
       email: this.email,
       password: this.password,
-    } as LoginUser;
+    } as Login;
   }
 
   showSnackbar(message: string) {
