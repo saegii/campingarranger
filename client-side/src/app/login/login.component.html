@@ -6,7 +6,7 @@
             <p>Please enter your email address to sign in:</p>
             <mat-form-field>
                 <mat-label>Email Address</mat-label>
-                <input matInput type="email" placeholder="Email address">
+                <input matInput type="email" placeholder="Email address" [(ngModel)]="email" required>
             </mat-form-field>
             <div class="button-container">
                 <button mat-raised-button color="basic" (click)="signUp()">Sign Up</button>

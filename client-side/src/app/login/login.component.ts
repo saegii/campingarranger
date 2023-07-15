@@ -29,35 +29,24 @@ export class LoginComponent implements OnInit {
 
   signIn() {
     console.log('Signing in with email:', this.email);
-    this.authService.authenticate(this.mapLoginUser())
-    .pipe(
-      catchError((error: HttpErrorResponse) => {
-        console.log('An error occurred:', error.message);
-        return throwError('Something went wrong.');
+    const user = this.mapLoginUser();
+    console.log(user);
+    this.authService.authenticate(user)
+      .pipe(
+        catchError((error: HttpErrorResponse) => {
+          console.log('An error occurred:', error.message);
+          return throwError('Something went wrong.');
+        })
+      )
+      .subscribe((response: LoginResponse) => {
+        console.log('Response:', response);
+        if (response.authorized) {
+          localStorage.setItem('isLoggedIn', 'true');
+          this.router.navigate(['/dashboard']);
+        } else {
+          this.showSnackbar('Not authorized user, register new account.');
+        }
       })
-    )
-    .subscribe((response: LoginResponse) => {
-      console.log('Response:', response);
-      localStorage.setItem('isLoggedIn', 'true');
-      this.router.navigate(['/dashboard']);
-    })
-    
-    // .subscribe(
-    //   authorized => {
-    //     console.log(authorized);
-    //     if (authorized) {
-    //       console.log('User is authorized to log in');
-    //       localStorage.setItem('isLoggedIn', 'true');
-    //       this.router.navigate(['/dashboard']);
-    //     } else {
-    //       this.showSnackbar('Incorrect email or password');
-    //     }
-    //   },
-    //   error => {
-    //     console.error('Error occurred during authorization check:', error);
-    //     this.showSnackbar('An error occurred during authorization check');
-    //   }
-    // );
   }
 
   mapLoginUser(): LoginUser {
