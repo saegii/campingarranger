@@ -1,4 +1,4 @@
-package com.saegiiproject.camparranger.user;
+package com.saegiiproject.camparranger.authentication;
 
 public class LoginRequest {
     private String email;

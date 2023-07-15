@@ -25,8 +25,6 @@ public class AuthenticationService {
         }
     }
 
-
-
     public ResponseEntity register(LoginRequest signUpRequest) {
         try {
             if (repository.findByEmail(signUpRequest.getEmail()) != null) {

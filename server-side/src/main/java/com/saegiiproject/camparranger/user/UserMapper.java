@@ -1,5 +1,6 @@
 package com.saegiiproject.camparranger.user;
 
+import com.saegiiproject.camparranger.authentication.LoginRequest;
 import org.springframework.stereotype.Component;
 
 @Component
