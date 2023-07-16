@@ -1,19 +1,16 @@
 <div class="container">
-    <mat-card class="card">
-        <mat-card-content class="content">
+    <p-card class="card">
         <div class="centered-content">
             <h2>Welcome!</h2>
             <p>Please enter your email address to sign in:</p>
-            <mat-form-field>
-                <mat-label>Email Address</mat-label>
-                <input matInput type="email" placeholder="Email address" [(ngModel)]="email" required>
-            </mat-form-field>
+            <div class="p-field">
+                <input pInputText type="email" placeholder="Email address" [(ngModel)]="email" required>
+              </div>
             <div class="button-container">
-                <button mat-raised-button color="basic" (click)="signUp()">Sign Up</button>
-                <button mat-raised-button color="primary" (click)="signIn()">Sign In</button>
+                <p-button styleClass="p-button-text"(click)="signUp()">Sign Up</p-button>
+                <p-button (click)="signIn()">Sign In</p-button>
             </div>
         </div>
-        </mat-card-content>
-    </mat-card>
+    </p-card>
 </div>
   

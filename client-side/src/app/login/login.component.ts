@@ -1,23 +1,23 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
 import { catchError, throwError } from 'rxjs';
-import { AuthService } from 'src/services/auth.service';
-import { User } from 'src/models/user';
 import { Login } from 'src/models/login';
+import { User } from 'src/models/user';
+import { AuthService } from 'src/services/auth.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   
   email = '';
   password = '';
 
-  constructor(private router: Router, private authService: AuthService, private snackBar: MatSnackBar) {}
+  constructor(private router: Router, private authService: AuthService, private messageService: MessageService) {}
 
   ngOnInit() {}
 
@@ -70,10 +70,7 @@ export class LoginComponent implements OnInit {
   }
 
   showSnackbar(message: string) {
-    this.snackBar.open(message, 'X', {
-      horizontalPosition: 'center',
-      verticalPosition: 'top'
-    });
+    this.messageService.add({ severity: 'info', summary: 'Snackbar Message', detail: 'This is a snackbar-like message.' });
   }
 
 }

@@ -7,7 +7,7 @@ import { NavigationEnd, Router } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'camparranger-frontend';
+  title = 'camp-arranger-client';
   isLoginScreen = false;
 
   constructor(private router: Router) {
