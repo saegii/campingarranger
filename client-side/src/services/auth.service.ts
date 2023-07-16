@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
+import { environment } from 'src/environment/environment';
 import { Login } from 'src/models/login';
 import { User } from 'src/models/user';
 
@@ -9,7 +10,6 @@ import { User } from 'src/models/user';
 })
 export class AuthService {
 
-  private apiUrl = 'http://localhost:8080/v1/api/auth'; 
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
@@ -20,10 +20,10 @@ export class AuthService {
   
 
   authenticate(user: Login): Observable<User> {
-    return this.http.post<User>(`${this.apiUrl}/login`, user, this.httpOptions);
+    return this.http.post<User>(`${environment.apiUrl}/auth/login`, user, this.httpOptions);
   }
 
   register(user: Login): Observable<User> {
-    return this.http.post<User>(`${this.apiUrl}/register`, user, this.httpOptions);
+    return this.http.post<User>(`$${environment.apiUrl}/auth/register`, user, this.httpOptions);
   }
 }
