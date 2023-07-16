@@ -16,7 +16,8 @@ import { MessageService } from 'primeng/api';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
-
+import { MenuModule } from 'primeng/menu';
+import {SidebarModule} from 'primeng/sidebar';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,8 @@ import { InputTextModule } from 'primeng/inputtext';
     CardModule,
     ButtonModule,
     InputTextModule,
+    MenuModule,
+    SidebarModule
   ],
   providers: [
     MessageService,
