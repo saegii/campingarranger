@@ -12,6 +12,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class GroupService {
 
@@ -29,6 +31,14 @@ public class GroupService {
             return ResponseEntity.status(HttpStatus.CREATED).body(mapper.mapToDto(group));
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Something went wrong while signing in user: " + e.getMessage());
+        }
+    }
+
+    public ResponseEntity getGroupsByUser(Long userId) {
+        try {
+            return ResponseEntity.status(HttpStatus.CREATED).body(mapper.mapToDtoList(repository.findByUsersId(userId)));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Something went wrong while loading groups for user: " + e.getMessage());
         }
     }
 }
