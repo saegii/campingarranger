@@ -16,8 +16,8 @@ public class GroupController {
     @Autowired
     private GroupService service;
 
-    @PostMapping("/login")
-    public ResponseEntity<GroupDto> authenticateUser(@RequestBody GroupCreationDto group) {
+    @PostMapping("/create")
+    public ResponseEntity<GroupDto> create(@RequestBody GroupCreationDto group) {
         return service.create(group);
     }
 }

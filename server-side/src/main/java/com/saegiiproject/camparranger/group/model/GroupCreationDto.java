@@ -6,7 +6,7 @@ import java.util.List;
 
 public class GroupCreationDto {
     private String name;
-    private List<UserDto> users;
+    private List<Long> userIds;
 
     public GroupCreationDto() {
     }
@@ -15,15 +15,15 @@ public class GroupCreationDto {
         return name;
     }
 
-    public List<UserDto> getUsers() {
-        return users;
-    }
-
     public void setName(String name) {
         this.name = name;
     }
 
-    public void setUsers(List<UserDto> users) {
-        this.users = users;
+    public List<Long> getUserIds() {
+        return userIds;
+    }
+
+    public void setUserIds(List<Long> userIds) {
+        this.userIds = userIds;
     }
 }
