@@ -1,4 +1,4 @@
-<div class="container">
+<div class="navigation-container">
     <p-sidebar [(visible)]="sidebarVisible" [position]="'left'" [showCloseIcon]="false" [blockScroll]="true">
         <div class="sidebar-content">
             <p-menu [model]="menuModel"></p-menu>
@@ -8,6 +8,7 @@
         </div>
     </p-sidebar>
     <div class="main-content">
+        <router-outlet></router-outlet>
     </div>
 </div>
   

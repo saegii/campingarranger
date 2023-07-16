@@ -18,6 +18,7 @@ import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { MenuModule } from 'primeng/menu';
 import {SidebarModule} from 'primeng/sidebar';
+import { GroupsComponent } from './groups/groups.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import {SidebarModule} from 'primeng/sidebar';
     NavigationComponent,
     LoginComponent,
     DashboardComponent,
+    GroupsComponent,
   ],
   imports: [
     BrowserModule,

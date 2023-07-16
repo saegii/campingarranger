@@ -1,4 +1,4 @@
 <div class="app-container">
   <app-navigation *ngIf="!isLoginScreen"></app-navigation>
-  <router-outlet></router-outlet>
+  <app-login *ngIf="isLoginScreen"></app-login>
 </div>

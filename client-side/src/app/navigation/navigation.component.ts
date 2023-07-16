@@ -16,7 +16,7 @@ export class NavigationComponent {
   ngOnInit() {}
 
   menuModel: MenuItem[] = [
-    { label: 'Groups', icon: 'pi pi-users' },
+    { label: 'Groups', icon: 'pi pi-users', routerLink: '/groups'  },
     { label: 'Calendar', icon: 'pi pi-calendar' }
   ];
 

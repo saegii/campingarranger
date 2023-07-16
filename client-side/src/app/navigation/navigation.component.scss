@@ -37,9 +37,27 @@
     width: 100%;
 }
 
+.navigation-containe {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.navigation-container {
+    display: grid;
+    grid-template-columns: 20rem 1fr;
+    grid-gap: 0;
+    height: 98%;
+}
+
 .sidebar-content {
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.main-content {
+    padding: 1em;
 }
