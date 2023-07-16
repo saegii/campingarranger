@@ -30,6 +30,7 @@ export class LoginComponent {
     )
     .subscribe((user: User) => {
       if (user.id) {
+        localStorage.setItem('userId', user.id);
         localStorage.setItem('isLoggedIn', 'true');
         this.router.navigate(['/dashboard']);
         this.showSnackbar('New user created.');
@@ -48,6 +49,7 @@ export class LoginComponent {
       )
       .subscribe((user: User) => {
         if (user.id) {
+          localStorage.setItem('userId', user.id);
           localStorage.setItem('isLoggedIn', 'true');
           this.router.navigate(['/dashboard']);
         } else {

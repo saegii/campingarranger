@@ -1,7 +1,7 @@
 <div class="navigation-container">
     <p-sidebar [(visible)]="sidebarVisible" [position]="'left'" [showCloseIcon]="false" [blockScroll]="true">
         <div class="sidebar-content">
-            <p-menu [model]="menuModel"></p-menu>
+            <p-menu [model]="menuItems"></p-menu>
             <p-button type="button" label=" Log Out" (click)="logOut()" class="logout-button" styleClass="p-button-secondary p-button-text">
                 <i class="pi pi-power-off"></i> 
             </p-button>
