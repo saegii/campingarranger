@@ -1,0 +1,19 @@
+<p-menubar [model]="menuItems" class="settings-bar">
+  <ng-template pTemplate="start">
+    <a (click)="openDashboard()">
+        <img src="../../assets/camp-arranger-icon.png" class="logo-icon" alt="brand logo">
+    </a>
+  </ng-template>
+  <ng-template pTemplate="end">
+        <a (click)="openUserInfo($event)">
+            <img src="assets/user-profile.png" class="user-icon" alt="Profile Picture">
+        </a>
+        <p-overlayPanel #overlayPanel [dismissable]="true">
+            <div>
+              <p>E-Mail: {{ user.email }}</p>
+              <p>More information coming soon!</p>
+            </div>
+        </p-overlayPanel>
+  </ng-template>
+</p-menubar>
+<p-messages></p-messages>

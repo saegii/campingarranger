@@ -13,6 +13,9 @@ import { InputTextModule } from 'primeng/inputtext';
 import { MenuModule } from 'primeng/menu';
 import { SidebarModule } from 'primeng/sidebar';
 import { TableModule } from 'primeng/table';
+import { MenubarModule } from 'primeng/menubar';
+import { SplitButtonModule } from 'primeng/splitbutton';
+import { OverlayPanelModule } from 'primeng/overlaypanel';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +23,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { GroupsComponent } from './groups/groups.component';
+import { SettingsBarComponent } from './settings-bar/settings-bar.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +32,7 @@ import { GroupsComponent } from './groups/groups.component';
     LoginComponent,
     DashboardComponent,
     GroupsComponent,
+    SettingsBarComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +47,10 @@ import { GroupsComponent } from './groups/groups.component';
     InputTextModule,
     MenuModule,
     SidebarModule,
-    TableModule
+    TableModule,
+    MenubarModule,
+    SplitButtonModule,
+    OverlayPanelModule
   ],
   providers: [
     MessageService,

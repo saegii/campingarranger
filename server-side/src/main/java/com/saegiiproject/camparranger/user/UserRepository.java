@@ -1,6 +1,7 @@
 package com.saegiiproject.camparranger.user;
 
 
+import com.saegiiproject.camparranger.user.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

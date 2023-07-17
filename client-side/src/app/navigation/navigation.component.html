@@ -1,15 +1,20 @@
 <p-messages></p-messages>
 <div class="navigation-container">
-    <p-sidebar [(visible)]="sidebarVisible" [position]="'left'" [showCloseIcon]="false" [blockScroll]="true">
-        <div class="sidebar-content">
-            <p-menu [model]="menuItems"></p-menu>
-            <p-button type="button" label=" Log Out" (click)="logOut()" class="logout-button" styleClass="p-button-secondary p-button-text">
-                <i class="pi pi-power-off"></i> 
-            </p-button>
+    <div>
+        <app-settings-bar></app-settings-bar>
+    </div>
+    <div class="side-nav-container">
+        <p-sidebar [(visible)]="sidebarVisible" [position]="'left'" [showCloseIcon]="false" [blockScroll]="true">
+            <div class="sidebar-content">
+                <p-menu [model]="menuItems"></p-menu>
+                <p-button type="button" label=" Log Out" (click)="logOut()" class="logout-button" styleClass="p-button-secondary p-button-text">
+                    <i class="pi pi-power-off"></i> 
+                </p-button>
+            </div>
+        </p-sidebar>
+        <div class="main-content">
+            <router-outlet></router-outlet>
         </div>
-    </p-sidebar>
-    <div class="main-content">
-        <router-outlet></router-outlet>
     </div>
 </div>
   

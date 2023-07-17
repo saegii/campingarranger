@@ -1,4 +1,4 @@
-package com.saegiiproject.camparranger.user;
+package com.saegiiproject.camparranger.user.model;
 
 import com.saegiiproject.camparranger.group.model.Group;
 import jakarta.persistence.*;

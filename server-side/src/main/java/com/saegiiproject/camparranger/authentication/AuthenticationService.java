@@ -2,6 +2,7 @@ package com.saegiiproject.camparranger.authentication;
 
 import com.saegiiproject.camparranger.authentication.model.LoginDto;
 import com.saegiiproject.camparranger.user.*;
+import com.saegiiproject.camparranger.user.model.User;
 import com.saegiiproject.camparranger.user.model.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

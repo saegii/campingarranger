@@ -1,9 +1,7 @@
 package com.saegiiproject.camparranger.group.model;
 
-import com.saegiiproject.camparranger.user.User;
+import com.saegiiproject.camparranger.user.model.User;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;

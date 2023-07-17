@@ -55,11 +55,11 @@ export class NavigationComponent {
 
   handleError(error: HttpErrorResponse) {
     console.log('An error occurred:', error);
-    this.showSnackbar(error.error);
+    this.showError(error.error);
     return throwError('Something went wrong.');
   }
 
-  showSnackbar(message: string) {
-    this.messageService.add({ severity: 'info', summary: 'Snackbar Message', detail: 'This is a snackbar-like message.' });
+  showError(message: string) {
+    this.messageService.add({ severity: 'error', summary: 'Error', detail: message });
   }
 }

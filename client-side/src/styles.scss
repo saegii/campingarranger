@@ -3,11 +3,12 @@
 @import 'colors.scss';
 
 html, body { 
-    height: 98%;
-    max-height: 98%; 
+    height: 100vh;
+    max-height: 100vh; 
     background-color: $background-color;
 }
 
 body { 
+    margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif; 
 }

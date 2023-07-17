@@ -1,0 +1,59 @@
+@import "../../colors.scss";
+
+:host {
+    ::ng-deep .p-menubar {
+        height: 4rem;
+    }    
+}
+
+.settings-bar {
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
+    top: 0;
+  
+    .p-menubar-root-list {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+      padding: 0 1rem;
+    }
+  
+    .p-menubar-root-list .p-menuitem-text {
+      font-weight: bold;
+    }
+  
+    .p-menubar-root-list .p-menuitem-icon {
+      font-size: 1.5rem;
+    }
+  
+    .profile-picture {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+    }
+  
+    .profile-menu {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      border: 1px solid $boarder-color;
+      padding: 0.5rem;
+      display: none;
+    }
+  
+    .profile-menu.show {
+      display: block;
+    }
+}
+
+.logo-icon {
+    padding: 0.5rem 0 0 0.5rem;
+    height: 3rem;
+}
+
+.user-icon {
+    padding: 0.2rem 0.5rem 0 0;
+    height: 2.2rem;
+}

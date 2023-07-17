@@ -2,17 +2,11 @@ package com.saegiiproject.camparranger.group;
 
 import com.saegiiproject.camparranger.group.model.Group;
 import com.saegiiproject.camparranger.group.model.GroupCreationDto;
-import com.saegiiproject.camparranger.group.model.GroupDto;
 import com.saegiiproject.camparranger.group.model.GroupMapper;
-import com.saegiiproject.camparranger.user.User;
-import com.saegiiproject.camparranger.user.UserRepository;
-import com.saegiiproject.camparranger.user.model.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class GroupService {
