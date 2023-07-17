@@ -19,6 +19,10 @@ export class SettingsBarComponent {
   menuItems: MenuItem[];
   showProfileMenu: boolean = false;
   user!: User;
+  users!: User[];
+  displayCampCreation: boolean = false;
+  selectedUsers!: User[];
+  campCreationName!: string;
 
   constructor(private router: Router, private userService: UserService, private messageService: MessageService) {
     this.menuItems = [
@@ -37,8 +41,17 @@ export class SettingsBarComponent {
       )
       .subscribe((user: User) => {
         this.user = user;
-      })
+      });
     }
+    this.userService.getAllUsers()
+    .pipe(
+      catchError((error: HttpErrorResponse) => {
+        return this.handleError(error);
+      })
+    )
+    .subscribe((users: User[]) => {
+      this.users = users;
+    });
   }
 
   toggleProfileMenu() {
@@ -46,7 +59,11 @@ export class SettingsBarComponent {
   }
 
   createCamp() {
-    console.log('Create camp action triggered');
+    this.displayCampCreation = true;
+  }
+
+  closeCampCreation() {
+    this.displayCampCreation = false;
   }
 
   openDashboard() {

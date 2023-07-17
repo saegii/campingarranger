@@ -1,6 +1,7 @@
 package com.saegiiproject.camparranger.user;
 
 import com.saegiiproject.camparranger.group.model.Group;
+import com.saegiiproject.camparranger.user.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +18,11 @@ public class UserController {
     @Autowired
     private UserService service;
     @GetMapping("/{userId}")
-    public ResponseEntity<List<Group>> getGroupsByUser(@PathVariable Long userId) {
+    public ResponseEntity<User> getUserById(@PathVariable Long userId) {
         return service.getUserById(userId);
+    }
+    @GetMapping("/all")
+    public ResponseEntity<List<User>> getGroupsByUser() {
+        return service.getAllUsers();
     }
 }

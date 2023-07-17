@@ -16,6 +16,8 @@ import { TableModule } from 'primeng/table';
 import { MenubarModule } from 'primeng/menubar';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
+import { DialogModule } from 'primeng/dialog';
+import { MultiSelectModule } from 'primeng/multiselect';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -50,7 +52,9 @@ import { SettingsBarComponent } from './settings-bar/settings-bar.component';
     TableModule,
     MenubarModule,
     SplitButtonModule,
-    OverlayPanelModule
+    OverlayPanelModule,
+    DialogModule,
+    MultiSelectModule,
   ],
   providers: [
     MessageService,

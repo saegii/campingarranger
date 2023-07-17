@@ -6,6 +6,15 @@
     }    
 }
 
+::ng-deep .p-multiselect {
+  width: 20rem;
+  margin-bottom: 12rem;
+
+  .p-hidden-accessible {
+    display: none !important;
+  }
+}
+
 .settings-bar {
     position: fixed;
     z-index: 9999;
@@ -56,4 +65,17 @@
 .user-icon {
     padding: 0.2rem 0.5rem 0 0;
     height: 2.2rem;
+}
+
+.camp-creation-content {
+  display: flex;
+}
+
+.multiselect-item {
+  display: flex;
+  align-items: center;
+}
+
+.multiselect-input {
+  margin-left: 1rem;
 }

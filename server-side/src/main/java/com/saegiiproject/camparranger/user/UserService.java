@@ -30,4 +30,12 @@ public class UserService {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Something went wrong while loading user by id: " + e.getMessage());
         }
     }
+
+    public ResponseEntity getAllUsers() {
+        try {
+            return ResponseEntity.status(HttpStatus.OK).body(mapper.mapToDtos(repository.findAll()));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Something went wrong while loading users: " + e.getMessage());
+        }
+    }
 }
