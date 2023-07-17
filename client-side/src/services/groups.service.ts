@@ -17,8 +17,8 @@ export class GroupsService {
 
   constructor(private http: HttpClient) { }
 
-  register(group: any): Observable<Group> {
-    return this.http.post<Group>(`$${environment.apiUrl}/group/create`, group, this.httpOptions);
+  createGroup(group: any): Observable<Group> {
+    return this.http.post<Group>(`${environment.apiUrl}/group/create`, group, this.httpOptions);
   }
 
   getGroupsByUserId(userId: number): Observable<Group[]> {

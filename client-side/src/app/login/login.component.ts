@@ -33,9 +33,9 @@ export class LoginComponent {
         localStorage.setItem('userId', user.id);
         localStorage.setItem('isLoggedIn', 'true');
         this.router.navigate(['/dashboard']);
-        this.showSnackbar('New user created.');
+        this.showError('New user created.');
       } else {
-        this.showSnackbar('User got created but is not authorized, try again.');
+        this.showError('User got created but is not authorized, try again.');
       }
     })
   }
@@ -53,14 +53,15 @@ export class LoginComponent {
           localStorage.setItem('isLoggedIn', 'true');
           this.router.navigate(['/dashboard']);
         } else {
-          this.showSnackbar('Wrong email or password.');
+          this.showError('Wrong email or password.');
         }
       })
   }
 
   handleError(error: HttpErrorResponse) {
     console.log('An error occurred:', error);
-    this.showSnackbar(error.error);
+    this.showError(error.error);
+    console.log(error.error)
     return throwError('Something went wrong.');
   }
 
@@ -71,8 +72,8 @@ export class LoginComponent {
     } as Login;
   }
 
-  showSnackbar(message: string) {
-    this.messageService.add({ severity: 'info', summary: 'Snackbar Message', detail: 'This is a snackbar-like message.' });
+  showError(message: string) {
+    this.messageService.add({ severity: 'error', summary: 'Error', detail: message });
   }
 
 }
