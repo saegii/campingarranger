@@ -4,4 +4,5 @@ export interface User {
     id: string;
     email: string;
     groups: Group[];
+    profilePictureUrl?: string;
 }

@@ -1,0 +1,13 @@
+<p-dialog 
+  [(visible)]="displayCampCreation" [modal]="true" [responsive]="true" [closable]="true" [closeOnEscape]="true" [dismissableMask]="true">
+  <ng-template pTemplate="header">
+    <h3>Create your camp</h3>
+  </ng-template>
+  <ng-template pTemplate="content" class="camp-creation-content">
+    <input pInputText type="email" placeholder="Camp name" [(ngModel)]="campCreationName" required>
+    <p-multiSelect [options]="users" [(ngModel)]="selectedUsers" optionLabel="email"></p-multiSelect>
+  </ng-template>
+  <ng-template pTemplate="footer">
+    <button pButton type="button" label="Close" (click)="closeCampCreation()"></button>
+  </ng-template>
+</p-dialog>

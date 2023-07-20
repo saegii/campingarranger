@@ -1,11 +1,14 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { MenuItem, MessageService } from 'primeng/api';
+import { MenuItem } from 'primeng/api';
 import { OverlayPanel } from 'primeng/overlaypanel';
-import { catchError, throwError } from 'rxjs';
+import { catchError } from 'rxjs';
 import { User } from 'src/models/user';
 import { UserService } from 'src/services/user.service';
+import { GroupCreatorComponent } from './group-creator/group-creator.component';
+import { AssociationCreatorComponent } from './association-creator/association-creator.component';
+import { MessagingService } from 'src/services/messaging.service';
 
 @Component({
   selector: 'app-settings-bar',
@@ -17,16 +20,26 @@ export class SettingsBarComponent {
   @ViewChild('overlayPanel') overlayPanel!: OverlayPanel;
 
   menuItems: MenuItem[];
-  showProfileMenu: boolean = false;
   user!: User;
-  users!: User[];
-  displayCampCreation: boolean = false;
-  selectedUsers!: User[];
-  campCreationName!: string;
+  showProfileMenu: boolean = false;
 
-  constructor(private router: Router, private userService: UserService, private messageService: MessageService) {
+  constructor(
+    private router: Router, 
+    private userService: UserService, 
+    private messagingService: MessagingService,
+    private groupCreator: GroupCreatorComponent,
+    private associationCreator: AssociationCreatorComponent,
+    private cdr: ChangeDetectorRef
+    ) {
     this.menuItems = [
-      { label: 'Create Camp', icon: 'pi pi-plus', command: () => this.createCamp() },
+      { label: 'Create Association', icon: 'pi pi-plus', command: () => {
+        this.associationCreator.createAssociation();
+        cdr.detectChanges();
+      }},
+      { label: 'Create Camp', icon: 'pi pi-plus', command: () => {
+        this.groupCreator.createCamp();
+        cdr.detectChanges();
+      }},
     ];
   }
 
@@ -36,34 +49,25 @@ export class SettingsBarComponent {
       this.userService.getUserById(parseInt(userId))
       .pipe(
         catchError((error: HttpErrorResponse) => {
-          return this.handleError(error);
+          return this.messagingService.handleRequestError(error);
         })
       )
       .subscribe((user: User) => {
         this.user = user;
       });
     }
-    this.userService.getAllUsers()
-    .pipe(
-      catchError((error: HttpErrorResponse) => {
-        return this.handleError(error);
-      })
-    )
-    .subscribe((users: User[]) => {
-      this.users = users;
-    });
   }
 
   toggleProfileMenu() {
     this.showProfileMenu = !this.showProfileMenu;
   }
 
-  createCamp() {
-    this.displayCampCreation = true;
+  isAssociationCreationShown() {
+    return this.associationCreator.isShown();
   }
 
-  closeCampCreation() {
-    this.displayCampCreation = false;
+  isGroupCreationShown() {
+    return this.groupCreator.isShown();
   }
 
   openDashboard() {
@@ -73,15 +77,5 @@ export class SettingsBarComponent {
   openUserInfo(event: Event) {
     event.preventDefault();
     this.overlayPanel.toggle(event);
-  }
-
-  handleError(error: HttpErrorResponse) {
-    console.log('An error occurred:', error);
-    this.showError(error.error);
-    return throwError('Something went wrong.');
-  }
-
-  showError(message: string) {
-    this.messageService.add({ severity: 'error', summary: 'Error', detail: message });
   }
 }

@@ -26,6 +26,8 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { GroupsComponent } from './groups/groups.component';
 import { SettingsBarComponent } from './settings-bar/settings-bar.component';
+import { AssociationCreatorComponent } from './settings-bar/association-creator/association-creator.component';
+import { GroupCreatorComponent } from './settings-bar/group-creator/group-creator.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import { SettingsBarComponent } from './settings-bar/settings-bar.component';
     DashboardComponent,
     GroupsComponent,
     SettingsBarComponent,
+    AssociationCreatorComponent,
+    GroupCreatorComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,6 +62,8 @@ import { SettingsBarComponent } from './settings-bar/settings-bar.component';
   ],
   providers: [
     MessageService,
+    GroupCreatorComponent,
+    AssociationCreatorComponent
   ],
   bootstrap: [AppComponent]
 })
