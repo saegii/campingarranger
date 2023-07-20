@@ -1,1 +1,9 @@
-<p>dashboard works!</p>
+<div class="card-list-container">
+    <div *ngFor="let group of groups" class="card-container">
+        <p-card header="{{ group.name }}" subheader="association {{ group.association }}">
+            <ng-template pTemplate="header">
+                <img alt="Card" src="../../assets/camp-image.jpg" class="card-image"/>
+            </ng-template>
+        </p-card>
+    </div>
+</div>
